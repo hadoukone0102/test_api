@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('factures', function (Blueprint $table) {
             $table->id();
+            $table->integer('montant');
+            $table->integer('client_id');
+            $table->string('status');
+            $table->dateTime('date_facturation');
+            $table->dateTime('date_paiement')->nullable();
             $table->timestamps();
         });
     }

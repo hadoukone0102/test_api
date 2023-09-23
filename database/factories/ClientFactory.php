@@ -16,8 +16,15 @@ class ClientFactory extends Factory
      */
     public function definition(): array
     {
+        $type = $this->faker->randomElement(['Personnel', 'Compagnie']);
+        $nom = ($type == 'Personnel') ? $this->faker->name : $this->faker->company();
         return [
             //
+            'nom' => $nom,
+            'type' => $type,
+            'adress' => $this->faker->streetAddress(),
+            'ville' => $this->faker->city(),
+            'code_postal' => $this->faker->postcode(),
         ];
     }
 }
